@@ -1,0 +1,22 @@
+﻿@model List<Book>
+<div class="row ">
+    @foreach (var item in Model)
+    {
+        <div class="col-3">
+            <form asp-controller="Home" asp-action="GetById" asp-route-id="@item.Id">
+                <div class="">
+                    <div class="card">
+                        <img src="http://localhost:5200/images/books/@item.Images.FirstOrDefault().Url" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+
+                            <p class="card-text">@item.EditionNumber</p>
+                            <p class="card-text">@item.Price</p>
+                            <button type="submit" class="btn btn-primary">Satın al</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+</div>
